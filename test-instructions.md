@@ -1,12 +1,12 @@
-# Art
+# Art Reference
 
-Create a RESTful api that helps to manage a list of famous art.  Include scripts to load data.  Provide developer documentation to minimize on-boarding friction.  
+Create a RESTful api that helps to manage a list of art information.  Include scripts to load data.  Provide developer documentation to minimize on-boarding friction.  
 
 ## Getting Started
 
 1. Fork the repo
 
-  Sign in to your GitHub account and fork the following repo:
+  Sign in to your GitHub account and fork the following repo to your account:
 
   ```
   https://github.com/jrs-innovation-center/art-api-exam-nolist
@@ -22,15 +22,26 @@ Create a RESTful api that helps to manage a list of famous art.  Include scripts
   $ npm install
   ```
 
-## Steps
+## Instructions and Grading Scale.
 
-Successfully complete the first 4 steps to receive a grade of 'Meets Expectations'. Complete step 5 to receive a grade of 'Exceeds Expectations'.  Complete step 6 to receive a grade of 'Outstanding'
+- Successfully complete the first 4 steps to receive a grade of 'Meets Expectations'. Complete step 5 to receive a grade of 'Exceeds Expectations'.  Complete step 6 to receive a grade of 'Outstanding'.
 
-### Step 1
+- Send your instructor a private direct message containing your repo url before the exam deadline.
+
+- Check the grind channel in Slack for further instructions including exam deadline date and time.
+
+> READ THESE INSTRUCTIONS TWICE.  READ THESE INSTRUCTIONS CAREFULLY.
+
+## Step 1
 
 - Using the existing file named **load-data.js**, create a program that adds the following paintings into a CouchDB database named `<your first name>Art`.  Ex:  `TripArt`:
 
-> If you're interacting with CouchDB in Cloudant, remember to keep your API key and password (secret) safe. Do not share on GitHub.  
+  > Hint:  https://pouchdb.com/api.html#batch_create
+
+- Create an npm script named `load` that runs your **load-data.js** program.  
+- Test this program by running `npm run load` from your terminal.
+
+  If you're interacting with CouchDB within IBM Bluemix/Cloudant, remember to keep your API key and password (secret) safe. Do not share on GitHub.  
 
   ```
   [
@@ -91,11 +102,11 @@ Successfully complete the first 4 steps to receive a grade of 'Meets Expectation
   ]
   ```
 
-- Within your **package.json**, create a `load` script that runs your **load-data.js** program.
-
-### Step 2
+## Step 2
 
 Review the information below and create the described functionality.
+
+> Your api should run on port 4000.
 
 - Create a painting
 
@@ -137,7 +148,7 @@ Review the information below and create the described functionality.
 
 - Retrieve a painting
 
-  `GET  /paintings/:id`  
+  `GET  /paintings/{id}`  
 
   Retrieves a specific painting as identified by the `:id` path parameter.
 
@@ -164,9 +175,9 @@ Review the information below and create the described functionality.
 
 - Update a painting
 
-  `PUT /paintings/:id`  
+  `PUT /paintings/{id}`  
 
-  Updates a specific painting as identified by the `:id` path parameter.  The request body must contain a JSON object that represents the painting being updated.  The request body must include the `_id`, `_rev`, `name`, `movement`, `artist`, `yearCreated`, and `museum` fields.  The `museum` key value must contain an object that includes a `name` and `location`.  Not providing the most recent `_rev` value will cause an `409 - conflict` error to occur.
+  Updates a specific painting as identified by the `:id` path parameter.  The request body must contain a JSON object that represents the painting being updated.  The request body must include the `_id`, `_rev`, `name`, `movement`, `artist`, `yearCreated`, and `museum` fields.  Not providing the most recent `_rev` value will cause an `409 - conflict` error to occur.
 
   **Sample Request**
 
@@ -189,7 +200,7 @@ Review the information below and create the described functionality.
   }
   ```
 
-  **Sample Response**
+  **200 Sample Response**
 
   ```
   {
@@ -201,11 +212,11 @@ Review the information below and create the described functionality.
 
 - Delete a painting
 
-  `DELETE /paintings/:id`  
+  `DELETE /paintings/{id}`  
 
   Deletes a specific painting as identified by the `:id` path parameter.
 
-  **Sample Request**
+  **200 Sample Request**
 
   ```
   DELETE /paintings/painting_bal_du_moulin_de_la_galette
@@ -221,22 +232,51 @@ Review the information below and create the described functionality.
   }
   ```
 
-### Step 3 - Getting Started
+## Step 3 - Getting Started Documentation
 
 Create developer on-boarding instructions by creating a **README.md** file.  Include the following sections.
 
-#### Getting Started
+### Getting Started
 
-Within the Getting Started section provide guidance on how to:
+Within the **Getting Started** section of the readme provide guidance on how to:
 
   - Clone your repo
   - Install dependencies
   - Establish environment variables
-  - Load data
+  - Load your data.
   - Start the API
+  - Make your first `GET` call within the browser.  
 
-#### Contributing
+## Step 4 - Basics documentation
 
-### Step 4 - Artist CRUD
+Within your readme, include a **Basics** section containing the following sections:
 
-Enhance the api by supporting the ability to create, read, update, and delete artists.  
+  > Hint:  https://apidocs.sky.blackbaud.com/docs/basics/
+
+ - Base URL - All endpoints within the paitings are located at the following base URL
+ - Scheme
+ - HTTP Verbs
+ - Content Types
+ - Response Status Codes  - Include a listing of common successful and error status codes that a developer could encounter with _your API_.  Include the status code, a description of the status code, and specific code examples, including JSON request and response samples. For example, what causes a painting not to be found?  What causes a resource conflict when updating or adding a painting?  What causes a bad request?
+
+### Step 5 - Artist CRUD
+
+Enhance the api by supporting the ability to create, read, update, and delete artists.
+
+  - `POST /artists`
+  - `GET /artists/{id}`
+  - `PUT /artists/{id}`
+  - `DELETE /artists/{id}`
+
+## Step 6 - Share code within libraries
+
+Within the **lib** folder, refactor the following functionality into library files.
+
+- **\lib\pk-generator.js** - Create a common primary key generator function.  Export the function from the NodeJS module.  Refactor your code to utilize the function.  
+
+- **\lib\check-required-fields.js** - Create a function that checks the data within the incoming request body for POSTs and PUTs.  The function should accepts 2 parameters:  
+
+  - An array of required fields/keys
+  - An object containing request body
+
+  The function should return an empty array if all required fields are present within the request body.  Otherwise return an array of missing fields. Export the function from the NodeJS module.  Refactor your code to utilize the function.  
