@@ -186,7 +186,7 @@ GET /paintings/painting_bal-du-moulin-de-la-galette
 
   `PUT /paintings/{id}`  
 
-  Updates a specific painting as identified by the `{id}` route parameter.  The request body must contain a JSON object that represents the painting being updated.  The request body must include the `_id`, `_rev`, `name`, `movement`, `artist`, `yearCreated`, and `museum` fields.  Not providing the most recent `_rev` value will cause an `409 - conflict` error to occur.
+  Updates a specific painting as identified by the `{id}` route parameter.  The request body must contain a JSON object that represents the painting being updated.  The request body must include the `_id`, `_rev`, `name`, `movement`, `artist`, `yearCreated`, `museum`, and `type` fields.  Not providing the most recent `_rev` value will cause an `409 - conflict` error to occur.
 
   **Sample Request**
 
