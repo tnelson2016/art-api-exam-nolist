@@ -51,7 +51,7 @@ Your test will be graded using the following grading scale:
   ```
   [
     {
-      "_id": "painting_starry_night",
+      "_id": "painting_starry-night",
       "name": "The Starry Night",
       "type": "painting",
       "movement": "post-impressionism",
@@ -60,7 +60,7 @@ Your test will be graded using the following grading scale:
       "museum": {name: "Museum of Modern Art", location: "New York"}
     },
     {
-      "_id": "painting_water_lilies_nympheas",
+      "_id": "painting_water-lilies-nympheas",
       "name": "Water Lilies Nympheas",
       "type": "painting",
       "movement": "impressionism",
@@ -69,7 +69,7 @@ Your test will be graded using the following grading scale:
       "museum": {name: "Art Gallery of Ontario", location: "Toronto"}
     },
     {
-      "_id": "painting_last_supper",
+      "_id": "painting_last-supper",
       "name": "The Last Supper",
       "type": "painting",
       "movement": "Renaissance",
@@ -78,7 +78,7 @@ Your test will be graded using the following grading scale:
       "museum": {name: "Santa Maria delle Grazie", location: "Milan"}
     },
     {
-      "_id": "painting_sunday_afternoon_on_the_island_of_la_grande_jatte",
+      "_id": "painting_sunday-afternoon-on-the_island-of-la-grande-jatte",
       "name": "A Sunday Afternoon on the Island of La Grande Jatte",
       "type": "painting",
       "movement": "impressionism",
@@ -96,7 +96,7 @@ Your test will be graded using the following grading scale:
       "museum": {name: "Museo Nacional Centro de Arte Reina Sofía", location: "Madrid"}
     },
     {
-      "_id": "painting_bal_du_moulin_de_la_galette",
+      "_id": "painting_bal-du-moulin-de-la-galette",
       "name": "Bal du moulin de la Galette",
       "type": "painting",
       "movement": "impressionism",
@@ -323,7 +323,7 @@ Returns a collection of paintings sorted by painting name. An optional `limit` q
     ```
     [
       {
-        "_id": "painting_bal_du_moulin_de_la_galette",
+        "_id": "painting_bal-du-moulin-de-la-galette",
         "_rev": "5-2bac91fbd33b6612e4ea7da0552c91ca",
         "name": "Bal du moulin de la Galette",
         "type": "painting",
