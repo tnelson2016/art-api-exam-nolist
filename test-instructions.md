@@ -1,6 +1,6 @@
 # Art Reference
 
-Create a RESTful api that helps to manage a list of art information.  Include scripts to load data.  Provide developer documentation to minimize on-boarding friction. This is an "open book" test. Use all your resouces including previous repos, videos, online guides, etc. for assistance.  However, communication with other students verbally on electronically is not permitted. 
+Create a RESTful api that helps to manage a list of art information.  Include scripts to load data.  Provide developer documentation to minimize on-boarding friction. This is an "open book" test. Use all your resouces including previous repos, videos, online guides, etc. for assistance.  However, communication with other students verbally or electronically is not permitted. 
 
 > READ THESE INSTRUCTIONS TWICE.  READ THESE INSTRUCTIONS CAREFULLY.
 
@@ -8,29 +8,29 @@ Create a RESTful api that helps to manage a list of art information.  Include sc
 
 1. Fork the repo
 
-  Sign in to your GitHub account and fork the following repo to your account:
+Sign in to your GitHub account and fork the following repo to your account:
 
-  ```
-  https://github.com/jrs-innovation-center/art-api-exam-nolist
-  ```
+```
+https://github.com/jrs-innovation-center/art-api-exam-nolist
+```
 
 2. Clone your fork
 
-  Clone your fork to your local machine and install the project's dependencies.
+Clone your fork to your local machine and install the project's dependencies.
 
-  ```
-  $ git clone <url>
-  $ cd art-api-exam-nolist
-  $ npm install
-  ```
+```
+$ git clone <url>
+$ cd art-api-exam-nolist
+$ npm install
+```
 
 ## Instructions and Grading Scale
 
 Your test will be graded using the following grading scale: 
 
-- Successfully complete the first 4 steps to receive a grade of 'Meets Expectations'. 
-- Complete step 5 to receive a grade of 'Exceeds Expectations'.  
-- Complete step 6 to receive a grade of 'Outstanding'.
+  - Successfully complete the first 4 steps to receive a grade of 'Meets Expectations'. 
+  - Complete step 5 to receive a grade of 'Exceeds Expectations'.  
+  - Complete step 6 to receive a grade of 'Outstanding'.
 
 ## Deadline
 
@@ -263,12 +263,16 @@ Within your readme, include a **Basics** section containing the following sectio
   > Hint:  https://apidocs.sky.blackbaud.com/docs/basics/
 
  - Base URL - All endpoints within the paintings are located at the following base URL
- - Scheme
- - HTTP Verbs
+ - Scheme - what scheme does your api support?
+ - HTTP Verbs - what verbs does your api support?  How does each verb relate to each of your entities, such as paintings?
  - Content Types
- - Response Status Codes  - Include a listing of common successful and error status codes that a developer could encounter with _your API_.  Include the status code, a description of the status code, and specific code examples, including JSON request and response samples. 
- 
- > For example, what causes a painting not to be found?  What causes a resource conflict when updating or adding a painting?  What causes a bad request?
+ - Response Status Codes  - Include a listing of common successful and error status codes that a developer could encounter with _your API_.  For example, what causes a painting not to be found?  What causes a resource conflict when updating or adding a painting?  What causes a bad request?  See the section titled **Response status codes** in SKY API Docs [Basics](https://apidocs.sky.blackbaud.com/docs/basics/)
+   
+   For each status code include:
+  
+  - the status code
+  - a description of the status code
+
 
 ### Step 5 - Artist CRUD
 
