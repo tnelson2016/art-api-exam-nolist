@@ -1,6 +1,6 @@
 # Art Reference
 
-Create a RESTful api that helps to manage a list of art information.  Include scripts to load data.  Provide developer documentation to minimize on-boarding friction. This is an "open book" test. Use all your resouces including previous repos, videos, online guides, etc. for assistance.  However, communication with other students verbally or electronically is not permitted. 
+Create a RESTful api that helps to manage a list of art information.  Include scripts to load _all_ your data.  Provide developer documentation to minimize on-boarding friction. This is an "open book" test. Use all your resouces including previous repos, videos, online guides, etc. for assistance.  However, communication with other students verbally or electronically is not permitted. 
 
 > READ THESE INSTRUCTIONS TWICE.  READ THESE INSTRUCTIONS CAREFULLY.
 
@@ -28,9 +28,9 @@ $ npm install
 
 Your test will be graded using the following grading scale: 
 
-  - Successfully complete the first 4 steps to receive a grade of 'Meets Expectations'. 
-  - Complete step 5 to receive a grade of 'Exceeds Expectations'.  
-  - Complete step 6 to receive a grade of 'Outstanding'.
+  - Successfully complete the first 5 steps to receive a grade of 'Meets Expectations'. 
+  - Complete the first 6 steps to receive a grade of 'Exceeds Expectations'.  
+  - Complete all the steps to receive a grade of 'Outstanding'.
 
 ## Deadline
 
@@ -282,8 +282,12 @@ Enhance the api by supporting the ability to create, read, update, and delete ar
   - `GET /artists/{id}`
   - `PUT /artists/{id}`
   - `DELETE /artists/{id}`
+  
+>  Don't forget to modify your load data script to load in the artist data, too.
 
 ## Step 6 - Share code within libraries
+
+> Tip:  You may want to consider creating a new "feature" branch to help manage the changes to your code. When the code within the branch is stable, you can merge the branch into the master branch.   After merging, delete the "feature" branch.
 
 Within the **lib** folder, refactor the following functionality into library files.
 
@@ -296,3 +300,88 @@ Within the **lib** folder, refactor the following functionality into library fil
   - An object containing request body
 
   The function should return an empty array if all required fields are present within the request body.  Otherwise, return an array of missing fields. Export the function from the NodeJS module.  Refactor your code to utilize the function.  
+
+## Step 7 - List paintings
+
+> Tip:  You may want to consider creating a new "feature" branch to help manage the changes to your code. When the code within the branch is stable, you can merge the branch into the master branch.   After merging, delete the "feature" branch.
+
+```
+GET /paintings
+```
+
+Returns a collection of paintings sorted by painting name. An optional `limit` query parameter provides a limit on the number of objects returned. Default `limit` value is 5. 
+
+> Hint: Consider using either `options` within [allDocs()](https://pouchdb.com/api.html#batch_fetch) or Ramda to provide the limit functionality.  
+
+  **Examples**
+
+  - `GET /paintings?limit=2` returns an JSON array of 2 paintings.
+
+    **Sample Response**
+
+    ```
+    [
+      {
+        "_id": "painting_bal_du_moulin_de_la_galette",
+        "_rev": "5-2bac91fbd33b6612e4ea7da0552c91ca",
+        "name": "Bal du moulin de la Galette",
+        "type": "painting",
+        "movement": "impressionism",
+        "artist": "Pierre-Auguste Renoires",
+        "yearCreated": 1876,
+        "museum": {
+            "name": "Musée d’Orsay",
+            "location": "Paris"
+        }
+      },
+      {
+        "_id": "painting_guernica",
+        "_rev": "5-a8b803395d7cb6154f63c627571a5575",
+        "name": "Guernica",
+        "type": "painting",
+        "movement": "surrealism",
+        "artist": "Pablo Picasso",
+        "yearCreated": 1937,
+        "museum": {
+            "name": "Museo Nacional Centro de Arte Reina Sofía",
+            "location": "Madrid"
+        }
+      }
+    ]
+    ```
+
+## Step 8 - Filter paintings
+
+- Create a `filter` query parameter on the `GET /paintings` endpoint to provide flexible search capability.  
+- Provide the ability to filter paintings by name, movement, artist and year created.  
+- In your api url's query string, the `filter` query parameter may be used in conjunction with the `limit` query parameter.
+
+> Hint: Consider using [Mango Queries](https://pouchdb.com/api.html#query_index) or Ramda to provide the filter.
+
+  **Example**
+
+  - Filter by movement and limit to five paintings
+
+    ```
+    GET /art/paintings?filter=movement:surrealism&limit=5
+    ```
+
+    **Sample Results**
+
+    ```
+    [
+      {
+          "_id": "painting_guernica",
+          "_rev": "1-ccd60fb0ca42d879d048f083b95cfdcb",
+          "name": "Guernica",
+          "type": "painting",
+          "movement": "surrealism",
+          "artist": "Pablo Picasso",
+          "yearCreated": 1937,
+          "museum": {
+              "name": "Museo Nacional Centro de Arte Reina Sofía",
+              "location": "Madrid"
+          }
+      }
+    ]
+    ```
