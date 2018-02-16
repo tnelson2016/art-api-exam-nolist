@@ -182,7 +182,7 @@ GET /paintings/painting_bal-du-moulin-de-la-galette
 }
 ```
 
-- Update a painting
+## Update a painting
 
   `PUT /paintings/{id}`  
 
@@ -219,7 +219,7 @@ GET /paintings/painting_bal-du-moulin-de-la-galette
   }
   ```
 
-- Delete a painting
+## Delete a painting
 
   `DELETE /paintings/{id}`  
 
@@ -249,9 +249,10 @@ Create developer on-boarding instructions by creating a **README.md** file.  Inc
 
 Within the **Getting Started** section of the readme provide guidance on how to:
 
+  - Create a database
   - Clone your repo
   - Install dependencies
-  - Establish environment variables
+  - Establish environment variables such as key and secrets to create a database url
   - Load your data.
   - Start the API
   - Make your first `GET` call within the browser.  
@@ -264,7 +265,7 @@ Within your readme, include a **Basics** section containing the following sectio
 
  - Base URL - All endpoints within the paintings are located at the following base URL
  - Scheme - what scheme does your api support?
- - HTTP Verbs - what verbs does your api support?  How does each verb relate to each of your entities, such as paintings?
+ - HTTP Verbs - what verbs does your api support?  How does each verb relate to each of the routes for your entities, such as paintings?
  - Content Types
  - Response Status Codes  - Include a listing of common successful and error status codes that a developer could encounter with _your API_.  For example, what causes a painting not to be found?  What causes a resource conflict when updating or adding a painting?  What causes a bad request?  See the section titled **Response status codes** in SKY API Docs [Basics](https://apidocs.sky.blackbaud.com/docs/basics/)
    
