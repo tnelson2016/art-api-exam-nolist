@@ -21,6 +21,7 @@ app.get('/paintings/', function(req, res, next) {
     .catch(err => next(new HTTPError(err.status, err.message)))
 })
 
+//
 app.get('/paintings/:id', (req, res, next) =>
   getPaintings(req.params.id)
     .then(paintings => res.send(paintings))
