@@ -60,6 +60,15 @@ const paintings = [
     artist: 'Pierre-Auguste Renoires',
     yearCreated: 1876,
     museum: { name: 'Musée d’Orsay', location: 'Paris' }
+  },
+
+  {
+    _id: 'painting_persistence-of-memory',
+    name: 'The Persistence of Memory',
+    movement: 'surrealism',
+    artist: 'Salvador Dali',
+    yearCreated: 1931,
+    museum: { name: 'Musuem of Modern Art', location: 'New York' }
   }
 ]
 db
