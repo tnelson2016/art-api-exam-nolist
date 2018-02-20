@@ -24,12 +24,13 @@ app.use(bodyParser.json())
 
 app.get('/paintings/', (req, res, next) => {
   listPaintings({
+    limit: 2,
     include_docs: true,
     startkey: 'painting_',
     endkey: 'painting_\ufff0'
   })
     .then(paintings => res.send(paintings))
-    .catch(err => next(new HTTPError(err.status, err.message)))
+    .catch(err => next(new HTTPError(err.status, err.message, err)))
 })
 
 app.get('/paintings/:id', (req, res, next) =>
@@ -65,6 +66,7 @@ app.delete('/paintings/:id', (req, res, next) =>
 
 app.get('/artists/', (req, res, next) => {
   listArtists({
+    limit: 3,
     include_docs: true,
     startkey: 'artist_',
     endkey: 'artist_\ufff0'
